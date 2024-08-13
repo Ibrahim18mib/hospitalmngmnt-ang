@@ -25,7 +25,17 @@ export class Hospital {
 }
 
 export interface ApiResponseModel {
-    message:string;
-    result:boolean;
-    data:any;
+  message: string;
+  result: boolean;
+  data: any;
+}
+
+export class User {
+  userName: string;
+  password: string;
+
+  constructor() {
+    this.userName = '';
+    this.password = '';
+  }
 }
