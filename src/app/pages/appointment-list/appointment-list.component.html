@@ -1,1 +1,110 @@
 <p>appointment-list works!</p>
+<div class="row">
+    <div class="col-8">
+        <div class="row">
+            @for (item of AppointmentLists; track $index) {
+            <div class="col-3">
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">{{item.mobileNo}}</p>
+                        <p class="card-text">{{item.appointmentDate}}</p>
+                        <p class="card-text">{{item.appointmentTime}}</p>
+                        <p class="card-text">{{item.naration}}</p>
+
+                    </div>
+                </div>
+            </div>
+            } @empty {
+            <h1>NO APPOINTMENTS</h1>
+            }
+
+
+
+        </div>
+
+    </div>
+    <div class="col-4">
+        <div class="card-body border text-black">
+            <h3 class="text-uppercase">Booking Appointment</h3>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="form3Example1m" [(ngModel)]="AppointmentObj.name"
+                            class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example1m">Name</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="form3Example1n" [(ngModel)]="AppointmentObj.mobileNo"
+                            class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example1n">Mobile No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="form3Example1m1" [(ngModel)]="AppointmentObj.city"
+                            class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example1m1">City</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="number" id="form3Example1n1" [(ngModel)]="AppointmentObj.age"
+                            class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example1n1">Age</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="gender">Gender</label>
+                    <input type="radio" name="gender" value="male" [(ngModel)]="AppointmentObj.gender"> Male
+                    <input type="radio" name="gender" value="female" [(ngModel)]="AppointmentObj.gender"> Female
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="date" id="form3Example8" [(ngModel)]="AppointmentObj.appointmentDate"
+                        class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example8">Appointment Date</label>
+                </div>
+                <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="form3Example9" [(ngModel)]="AppointmentObj.appointmentTime"
+                        class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example9">Appointment Time</label>
+                </div>
+            </div>
+
+            <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                <div class="form-check">
+                    <input class="form-check-input" [(ngModel)]="AppointmentObj.isFirstVisit" type="checkbox" value=""
+                        id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Is First Visit
+                    </label>
+                </div>
+                <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="form3Example11" [(ngModel)]="AppointmentObj.naration"
+                        class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example11">Naration</label>
+                </div>
+            </div>
+            
+
+            <div class="d-flex justify-content-end pt-3">
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+                    (click)="onBookAppointment()">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+
+</div>
