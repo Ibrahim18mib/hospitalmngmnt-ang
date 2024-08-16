@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {
   ApiResponseModel,
   Hospital,
@@ -20,11 +20,12 @@ export class AppComponent {
   userObj: User = new User();
   LoggedHospitalData: Hospital = new Hospital();
 
-  constructor(private hospitalServ: HospitalService) {
-    const loggedData = localStorage.getItem('practoLogin');;
+  constructor(private hospitalServ: HospitalService,private router:Router) {
+    const loggedData = localStorage.getItem('practoLogin');
     if(loggedData != null){
       this.LoggedHospitalData = JSON.parse(loggedData);
     }
+    
   }
 
   showLogin() {
@@ -37,6 +38,7 @@ export class AppComponent {
   onLogout() {
     localStorage.removeItem('practoLogin');
     this.LoggedHospitalData = new Hospital();
+    this.router.navigateByUrl('/home');
   }
 
   closeLogin() {
