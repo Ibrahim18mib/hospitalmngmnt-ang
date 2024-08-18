@@ -1,1 +1,14 @@
 <p>patient-list works!</p>
+<div>
+    <div class="row">
+        <div class="col-6">APIChecking</div>
+    </div>
+
+    <button class="btn btn-primary" (click)="onClick()">ChckAPI</button>
+</div>
+<div *ngFor="let val of valObjEntries">
+    <h3 >Entries:{{val}}</h3>
+</div>
+
+<br>
+<h3>Keys:{{valObjKeys}}</h3>

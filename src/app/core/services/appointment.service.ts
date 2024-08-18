@@ -25,4 +25,14 @@ export class AppointmentService {
     );
   }
 
+  private apiUrl = 'https://dummyapi.io/data/api';
+
+  getApiId(): Observable<any> {
+    return this.http.get<any>('assets/getID.json');
+  }
+  postApiId(url:any,dataObj:any): Observable<any> {
+    debugger
+    return this.http.post<any>(url, dataObj);
+  }
+
 }
